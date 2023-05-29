@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aniversário</title>
+    <style>
+        body {
+            height: 100%;
+            background-color: #272727;
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+                "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        #centralizar {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: #fff;
+            max-width: 40%;
+        }
+
+        @media only screen and (max-width: 767px) {
+            #centralizar {
+                width: 90%;
+                max-width: 90%;
+            }
+        }
+
+        #titulo {
+            text-align: center;
+        }
+
+        #convite {
+            text-align: center;
+        }
+
+        button {
+            font-size: 1.8rem;
+            background-color: transparent;
+            border-radius: 0.8rem;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        #botoes {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #confirmar {
+            margin: 0 1rem;
+        }
+
+        #negar {
+            color: rgb(255, 255, 255);
+            border-color: rgb(255, 255, 255);
+            margin: 0 1rem;
+        }
+
+        #ps {
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(200vw);
+            }
+        }
+
+        #nyan {
+            position: relative;
+            left: -20rem;
+            animation: moveText 10s infinite;
+        }
+
+        #img-nyan {
+            height: 10rem;
+        }
+
+        @keyframes moveGradient {
+            0% {
+                border-color: #ff0000;
+                color: #ff0000;
+            }
+
+            8.33% {
+                border-color: #ff7f00;
+                color: #ff7f00;
+            }
+
+            24.99% {
+                border-color: #ffff00;
+                color: #ffff00;
+            }
+
+            41.66% {
+                border-color: #00ff00;
+                color: #00ff00;
+            }
+
+            58.33% {
+                border-color: #0000ff;
+                color: #0000ff;
+            }
+
+            74.99% {
+                border-color: #4b0082;
+                color: #4b0082;
+            }
+
+            91.66% {
+                border-color: #9400d3;
+                color: #9400d3;
+            }
+
+            100% {
+                border-color: #ff0000;
+                color: #ff0000;
+            }
+        }
+
+        .gradiente {
+            border: 2px solid;
+            animation: moveGradient 10s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nyan">
+        <img id="img-nyan" src="https://www.pngmart.com/files/11/Nyan-Cat-PNG-Transparent-HD-Photo.png" alt="" />
+    </div>
+    <div id="centralizar">
+        <div>
+            <h3 id="titulo">Bem vindo(a)</h3>
+            <p id="convite">
+                Se você recebeu esse link é porque estou te convidado para vir à minha
+                festa de aniversário no domingo dia <b>18/06</b>.
+                <br />
+                Vai ter um churrasquinho mas por favor traga a sua bebida, conto com a
+                sua presença :)
+                <br />
+            </p>
+            <div id="botoes">
+                <button class="gradiente" id="confirmar"
+                    onclick="sendMessage('Opa, vim aqui confirmar minha presença, manda o endereço ai!')">
+                    Eu vou!
+                </button>
+                <button id="negar" title="Sou Vacilão"
+                    onclick="sendMessage('Puts mano, não vai dar pra ir foi mal...')">
+                    Não vou
+                </button>
+            </div>
+            <p id="ps">
+                Ps: Para confirmar é so clicar nos botões a cima, e só vou mandar o
+                endereço depois que confirmar, vai que o link vaza...
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage(mensagem) {
+            var numero = "+55011999364733";
+
+            var url =
+                "https://api.whatsapp.com/send?phone=" + numero + "&text=" + mensagem;
+
+            window.open(url);
+        }
+    </script>
+</body>
+
+</html>
