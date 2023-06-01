@@ -149,7 +149,7 @@
             <h3 id="titulo">Bem vindo(a)</h3>
             <p id="convite">
                 Se você recebeu esse link é porque estou te convidando para vir à minha
-                festa de aniversário no domingo dia <b>18/06</b>.
+                festa de aniversário no domingo <b>18/06 às 13:00</b>.
                 <br />
                 Vai ter um churrasquinho mas por favor traga a sua bebida, conto com a
                 sua presença :)
@@ -157,28 +157,27 @@
             </p>
             <div id="botoes">
                 <button class="gradiente" id="confirmar"
-                    onclick="sendMessage('Opa, vim aqui confirmar minha presença, manda o endereço ai!')">
+                    onclick="enviarMensagem('Opa, vim aqui confirmar minha presença, manda o endereço ai!')">
                     Eu vou!
                 </button>
                 <button id="negar" title="Sou Vacilão"
-                    onclick="sendMessage('Puts mano, não vai dar pra ir foi mal...')">
+                    onclick="enviarMensagem('Puts mano, não vai dar pra ir foi mal...')">
                     Não vou
                 </button>
             </div>
             <p id="ps">
-                Ps: Para confirmar é so clicar nos botões a cima, e só vou mandar o
+                Ps: Para confirmar é só clicar em um dos botões
+                e se possivel confirmar até o dia 16/06. Só vou mandar o
                 endereço depois que confirmar, vai que o link vaza...
             </p>
         </div>
     </div>
 
     <script>
-        function sendMessage(mensagem) {
+        function enviarMensagem(mensagem) {
             var numero = "+55011999364733";
-
-            var url =
-                "https://api.whatsapp.com/send?phone=" + numero + "&text=" + mensagem;
-
+            var url = `https://api.whatsapp.com/send?phone=${numero}&text=${mensagem}`;
+            console.log(url);
             window.open(url);
         }
     </script>
